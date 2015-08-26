@@ -1,3 +1,5 @@
 fooddata/*
 node_modules/*
 webpack-stats.json
+*pyc
+*.sqlite3

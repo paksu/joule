@@ -5,11 +5,10 @@ import json
 
 
 class FoodAPITests(APITestCase):
-    def setUp(self):
+    def test_get_foods_list(self):
         self.component = ComponentFactory()
         self.food = FoodFactory(components=[self.component])
 
-    def test_get_foods_list(self):
         response = self.client.get("/api/foods/")
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         food = json.loads(response.content)[0]
@@ -24,3 +23,15 @@ class FoodAPITests(APITestCase):
             u"code": unicode(self.component.code),
             u"value": unicode(self.component.value)
         }])
+
+    def test_filter_foods_by_name(self):
+        self.food1 = FoodFactory(name="foobar")
+        self.food2 = FoodFactory(name="sugar")
+        self.food3 = FoodFactory(name="asd")
+        self.food4 = FoodFactory(name="better sugar")
+
+        response = self.client.get("/api/foods/?search=sugar")
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        foods = json.loads(response.content)
+
+        self.assertEqual(len(foods), 2)

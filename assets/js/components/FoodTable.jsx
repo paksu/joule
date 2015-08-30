@@ -1,5 +1,5 @@
 import React from 'react';
-import FoodRow from './FoodRow'
+import FoodRow from './FoodRow';
 
 export default class FoodTable extends React.Component {
   render() {

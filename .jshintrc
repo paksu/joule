@@ -1,0 +1,9 @@
+{
+  "trailing": true,
+  "undef": true,
+  "unused": true,
+  "eqnull": true,
+  "esnext": true,
+  "globals": {
+  }
+}

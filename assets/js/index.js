@@ -1,4 +1,4 @@
-var React = require('react');
-var App = require('./app');
+import React from 'react';
+import FoodPicker from './components/FoodPicker.jsx';
 
-React.render(<App/>, document.getElementById('react-app'));
+React.render(<FoodPicker />, document.getElementById('react-app'));

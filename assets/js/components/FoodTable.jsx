@@ -3,7 +3,17 @@ import FoodRow from './FoodRow';
 
 export default class FoodTable extends React.Component {
   render() {
-    const { foods, onAddFood } = this.props;
+    const { filterText, onAddFood } = this.props;
+    let { foods } = this.props;
+
+    // if we got filterText then apply filter
+    // otherwise show full list
+    if(filterText) {
+      foods = foods.filter((food) => {
+        let foodName = food.name.toLowerCase();
+        return foodName.includes(filterText.toLowerCase());
+      });
+    }
 
     return (
       <ul className="list-group">

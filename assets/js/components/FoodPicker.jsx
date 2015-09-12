@@ -1,23 +1,15 @@
 import React from 'react';
 import SelectedFoodsTable from './SelectedFoodsTable';
 import FilterableFoodTable from './FilterableFoodTable';
-
-let FOODS = [
-  { name: 'Pasta', components: []},
-  { name: 'Nuts'},
-  { name: 'Chicken'},
-  { name: 'Pork'},
-  { name: 'Beef'},
-  { name: 'Rice'}
-];
-let SELECTED_FOODS = [{ name: 'Tomato'}];
+import { FOOD_LIST } from '../lib/constants'
+let SELECTED_FOODS = [];
 
 export default class FoodPicker extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       selectedFoods: SELECTED_FOODS,
-      allFoods: FOODS
+      allFoods: FOOD_LIST
     };
   }
 

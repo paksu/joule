@@ -23,4 +23,10 @@ class FoodSerializer(serializers.ModelSerializer):
             'name',
             'food_type',
             'components',
+            'process_code',
+            'edible_portion',
+            'ingredient_class',
+            'ingredient_type',
+            'food_use_class',
+            'food_use_type',
         )

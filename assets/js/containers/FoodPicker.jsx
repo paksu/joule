@@ -1,7 +1,7 @@
 import React from 'react';
-import SelectedFoodsTable from './SelectedFoodsTable';
-import FilterableFoodTable from './FilterableFoodTable';
-import Overview from './Overview'
+import SelectedFoodsTable from '../components/SelectedFoodsTable';
+import FilterableFoodTable from '../components/FilterableFoodTable';
+import Overview from '../components/Overview'
 import { FOOD_LIST } from '../constants/Foodlist'
 let SELECTED_FOODS = [];
 

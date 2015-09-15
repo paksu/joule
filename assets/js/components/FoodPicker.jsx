@@ -2,7 +2,7 @@ import React from 'react';
 import SelectedFoodsTable from './SelectedFoodsTable';
 import FilterableFoodTable from './FilterableFoodTable';
 import Overview from './Overview'
-import { FOOD_LIST } from '../lib/constants'
+import { FOOD_LIST } from '../constants/Foodlist'
 let SELECTED_FOODS = [];
 
 export default class FoodPicker extends React.Component {

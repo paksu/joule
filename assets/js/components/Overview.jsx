@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import {Pie as PieChart} from 'react-chartjs';
 
 var FAT = {
@@ -22,7 +22,7 @@ var CARBS = {
 var data = [FAT, PROTEIN, CARBS];
 var chartOptions = {};
 
-export default class Overview extends React.Component {
+export default class Overview extends Component {
 
   render() {
     const { foods } = this.props;
@@ -49,4 +49,10 @@ export default class Overview extends React.Component {
       </div>
     );
   }
+};
+
+Overview.propTypes = {
+  foods: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired
+  }))
 };

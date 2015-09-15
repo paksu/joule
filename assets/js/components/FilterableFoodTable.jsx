@@ -1,27 +1,23 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import FoodTable from './FoodTable';
 import SearchBar from './SearchBar';
 
-export default class FilterableFoodTable extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      searchTerm: undefined,
-    };
-  }
-
+export default class FilterableFoodTable extends Component {
   handleUserInput (searchTerm) {
-    this.setState({
-      searchTerm: searchTerm
-    });
+    this.props.onSearchTermChanged(searchTerm)
   }
 
   render() {
+    const { searchTerm, foods, onAddFood } = this.props;
     return (
       <div>
-        <SearchBar searchTerm={this.state.searchTerm} onUserInput={(text) => this.handleUserInput(text)} />
-        <FoodTable searchTerm={this.state.searchTerm} foods={this.props.foods} onAddFood={this.props.onAddFood}  />
+        <SearchBar searchTerm={searchTerm} onUserInput={(text) => this.handleUserInput(text)} />
+        <FoodTable searchTerm={searchTerm} foods={foods} onAddFood={onAddFood}  />
       </div>
     );
   }
+};
+
+FilterableFoodTable.propTypes = {
+  onSearchTermChanged: PropTypes.func.isRequired
 };

@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import FoodRow from './FoodRow';
 
-export default class FoodTable extends React.Component {
+export default class FoodTable extends Component {
   render() {
     const { searchTerm, onAddFood } = this.props;
     let { foods } = this.props;
@@ -23,4 +23,10 @@ export default class FoodTable extends React.Component {
       </ul>
     );
   }
+};
+
+FoodTable.propTypes = {
+  foods: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired
+  }))
 };

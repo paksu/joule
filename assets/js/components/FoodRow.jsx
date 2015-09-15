@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 
-export default class FoodRow extends React.Component {
+export default class FoodRow extends Component {
   render() {
     let iconClassNames = `glyphicon glyphicon-${this.props.icon}`;
     return (
@@ -13,6 +13,7 @@ export default class FoodRow extends React.Component {
     );
   }
 };
+
 FoodRow.propTypes = {
   food: React.PropTypes.object.isRequired
 }

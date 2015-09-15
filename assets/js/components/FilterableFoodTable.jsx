@@ -6,21 +6,21 @@ export default class FilterableFoodTable extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      filterText: undefined,
+      searchTerm: undefined,
     };
   }
 
-  handleUserInput (filterText) {
+  handleUserInput (searchTerm) {
     this.setState({
-      filterText: filterText
+      searchTerm: searchTerm
     });
   }
 
   render() {
     return (
       <div>
-        <SearchBar filterText={this.state.filterText} onUserInput={(text) => this.handleUserInput(text)} />
-        <FoodTable filterText={this.state.filterText} foods={this.props.foods} onAddFood={this.props.onAddFood}  />
+        <SearchBar searchTerm={this.state.searchTerm} onUserInput={(text) => this.handleUserInput(text)} />
+        <FoodTable searchTerm={this.state.searchTerm} foods={this.props.foods} onAddFood={this.props.onAddFood}  />
       </div>
     );
   }

@@ -3,7 +3,7 @@ import React from 'react';
 export default class SearchBar extends React.Component {
   handleChange() {
     this.props.onUserInput(
-      this.refs.filterTextInput.getDOMNode().value
+      this.refs.searchTermInput.getDOMNode().value
     );
   }
 
@@ -13,8 +13,8 @@ export default class SearchBar extends React.Component {
         className="form-control"
         type="text"
         placeholder="Search..."
-        value={this.props.filterText}
-        ref="filterTextInput"
+        value={this.props.searchTerm}
+        ref="searchTermInput"
         onChange={() => this.handleChange()}
       />
     );

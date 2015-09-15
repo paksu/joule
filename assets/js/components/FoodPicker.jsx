@@ -15,8 +15,7 @@ export default class FoodPicker extends React.Component {
   }
 
   addFood(food) {
-    let newSelectedFoods = this.state.selectedFoods;
-    newSelectedFoods.push(food);
+    let newSelectedFoods = [...this.state.selectedFoods, food];
     this.setState({
       selectedFoods: newSelectedFoods
     });

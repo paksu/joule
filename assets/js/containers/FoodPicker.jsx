@@ -1,11 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { addFood, removeFood, searchTermChanged } from '../actions/FoodPickerActions'
+import { addFood, removeFood, searchTermChanged } from '../actions/'
 import SelectedFoodsTable from '../components/SelectedFoodsTable';
 import FilterableFoodTable from '../components/FilterableFoodTable';
 import Overview from '../components/Overview'
-import { FOOD_LIST } from '../constants/Foodlist'
-let SELECTED_FOODS = [];
 
 export default class FoodPicker extends Component {
   render() {

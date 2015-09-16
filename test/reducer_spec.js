@@ -27,4 +27,16 @@ describe('foodpicker', () => {
     });
   });
 
+  it('handles SEARCH_FOOD_READY', () => {
+    const initialState = {
+      allFoods: [{id: 1, name: 'foobar' }]
+    };
+    const action = {type: 'SEARCH_FOOD_READY', foods: [{id: 1, name: 'foobar' }]};
+    const nextState = foodpicker(initialState, action);
+
+    expect(nextState).deep.equal({
+      allFoods: [{id: 1, name: 'foobar' }]
+    });
+  });
+
 });

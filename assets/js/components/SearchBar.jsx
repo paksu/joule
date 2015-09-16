@@ -1,3 +1,4 @@
+import debounce from 'debounce'
 import React, { Component, PropTypes } from 'react';
 
 export default class SearchBar extends Component {
@@ -6,7 +7,9 @@ export default class SearchBar extends Component {
       this.refs.searchTermInput.getDOMNode().value
     );
   }
-
+  componentWillMount() {
+    this.handleChange = debounce(this.handleChange, 350);
+  }
   render() {
     return (
       <input

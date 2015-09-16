@@ -1,10 +1,15 @@
 import React from 'react';
 import FoodPicker from './containers/FoodPicker';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import { foodpicker } from './reducers';
+import httpMiddleWare from './middleware/http'
 
-let store = createStore(foodpicker);
+const createStoreWithMiddleware = applyMiddleware(
+  httpMiddleWare
+)(createStore);
+
+const store = createStoreWithMiddleware(foodpicker);
 
 React.render(
   // The child must be wrapped in a function

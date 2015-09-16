@@ -11,7 +11,7 @@ class FoodAPITests(APITestCase):
 
         response = self.client.get("/api/foods/")
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        food = json.loads(response.content)[0]
+        food = json.loads(response.content)["results"][0]
 
         self.assertDictContainsSubset({
             "id": self.food.id,
@@ -32,6 +32,6 @@ class FoodAPITests(APITestCase):
 
         response = self.client.get("/api/foods/?search=sugar")
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        foods = json.loads(response.content)
+        foods = json.loads(response.content)["results"]
 
         self.assertEqual(len(foods), 2)

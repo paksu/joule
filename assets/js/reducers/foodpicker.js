@@ -35,7 +35,7 @@ export default function foodpicker(state = initialState, action) {
   case REMOVE_FOOD:
     return {
       ...state,
-      selectedFoods: state.selectedFoods.filter((food) => { return food != action.food; })
+      selectedFoods: state.selectedFoods.filter((food) => { return food.id != action.food.id; })
     }
   default:
     return state;
